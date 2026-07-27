@@ -6,7 +6,6 @@ An end-to-end guide for building a Waveshare UGV rover on an NVIDIA Jetson Orin 
 **Advisor:** Professor Abdelkrim Brania — Professor of Mathematics
 **Last updated:** July 27, 2026
 
-> **A note on links:** External references from the original document (guides, videos, and the project repo) appear below as `[link](#)` placeholders. Replace each `#` with the correct URL before publishing.
 
 ---
 
