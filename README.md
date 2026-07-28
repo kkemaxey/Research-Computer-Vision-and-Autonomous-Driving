@@ -48,8 +48,8 @@ You can flash Jetson Linux (Ubuntu) onto the Jetson Orin Nano using either of tw
 
 **Steps**
 
-1. Download the NVIDIA JetPack 7.2 ISO image file ([step 2 on the Jetson user guide](#)).
-2. Download flashing software such as [balenaEtcher](#) to write OS images onto the flash drive.
+1. Download the NVIDIA JetPack 7.2 ISO image file ([step 2 on the Jetson user guide](https://docs.nvidia.com/jetson/orin-nano-devkit/user-guide/latest/quick_start.html#download-iso-image:~:text=2%EF%B8%8F%E2%83%A3-,Download%20ISO%20image,-%23)).
+2. Download flashing software such as [balenaEtcher](https://etcher.balena.io/) to write OS images onto the flash drive.
 3. Insert the USB flash drive into your PC. Using balenaEtcher (or another flashing tool), flash the ISO file onto the flash drive, then eject it from your computer.
 4. With the flash drive now holding the image file, insert it into one of the USB ports on the Jetson, then insert the microSD card into the Jetson's microSD card slot.
 
@@ -57,7 +57,7 @@ You can flash Jetson Linux (Ubuntu) onto the Jetson Orin Nano using either of tw
 
 ### NVMe SSD Method
 
-Unless you have an NVMe adapter that connects to your computer (allowing you to flash the SSD with an ISO image directly), the steps are essentially the same as the microSD method. The key difference is that you must install the NVMe card on the Jetson Orin Nano ([instructions here](#)) instead of inserting a microSD card.
+Unless you have an NVMe adapter that connects to your computer (allowing you to flash the SSD with an ISO image directly), the steps are essentially the same as the microSD method. The key difference is that you must install the NVMe card on the Jetson Orin Nano instead of inserting a microSD card.[See the instructions here](https://www.youtube.com/watch?v=q4fGac-nrTI)(watch to 0:54).
 
 ---
 
@@ -111,7 +111,7 @@ By default, the Jetson uses the Remote Network Driver Interface Specification (R
    ```bash
    sudo vim /opt/nvidia/l4t-usb-device-mode/nv-l4t-usb-device-mode-config.sh
    ```
-   ([Learn vim here](#).)
+   ([Learn vim here](https://opensource.com/article/19/3/getting-started-vim).)
 3. Change `RNDIS = 1` to `RNDIS = 0`, and make sure `ECM = 1`.
 
 ### d) Assign a Static IP to Mitigate SSH Issues *(optional, but may be needed)*
@@ -129,24 +129,24 @@ sudo nmcli connection up "YOUR_WIFI_NAME"
 
 > *Only required for non-Waveshare Jetson Orin Nano boards.*
 
-1. With the monitor, keyboard, and mouse still connected, open a terminal and `git clone` [this repo](#) into your home directory. (Run `cd ~` first if you're unsure where your home directory is.)
+1. With the monitor, keyboard, and mouse still connected, open a terminal and `git clone` [this repo](https://github.com/waveshareteam/ugv_jetson) into your home directory. (Run `cd ~` first if you're unsure where your home directory is.)
 2. Disconnect the monitor, keyboard, and mouse from the Jetson, then move on to the next step.
 
 ---
 
 ## 5. Attach the Jetson Board to the UGV Rover
 
-> **⚠️ Disclaimer:** If you bought the official Jetson Orin Nano reference board ([link](#)), it was **not** designed to be assembled onto the UGV rover. You need the "Jetson Orin Nano 4GB" kit that ships with the UGV rover kit for the screws to be compatible with rover assembly. That said, the steps below describe how I assembled the reference board onto the UGV rover.
+> **⚠️ Disclaimer:** If you bought the official Jetson Orin Nano reference board ([link](https://www.amazon.com/NVIDIA-Jetson-Orin-Nano-Developer/dp/B0BZJTQ5YP/ref=sr_1_1?adgrpid=189418351634&dib=eyJ2IjoiMSJ9.Im0a4F6pyjbDvCc3Rs1VH8zLtylrqc8cxTEntyVjrmefd30H4-__UuZNm3JwSmuADh-8QHA2D8TbwCnKNxRAtzKk50vpC68s1l_K13BwTDtYsNYcBhnKF-IAHHBRKTlQsCEEEaxVzccWtg8xuSUQ8SpvWkvrCfA_acpHbCY2O0NfbTJJx1NHI_FDmEdaiqZpx6RUmNfM_jbzQK7hnadQOfgmDGMuIpU0Cgh3LhVlyrs.yfk4sT5pWvAwILDCbZzOyqM-Od8YRjmOpvqhxAE57J8&dib_tag=se&hvadid=779670527180&hvdev=c&hvexpln=0&hvlocphy=9060222&hvnetw=g&hvocijid=9516555164829194638--&hvqmt=e&hvrand=9516555164829194638&hvtargid=kwd-1778164395829&hydadcr=24332_13859599_2335103&keywords=jetson%2Borin%2Bnano&mcid=0967175d3fb13b8aac981f15d7aa80a7&qid=1782225139&sr=8-1&th=1)), it was **not** designed to be assembled onto the UGV rover. You need the "Jetson Orin Nano 4GB" kit that ships with the UGV rover kit for the screws to be compatible with rover assembly. That said, the steps below describe how I assembled the reference board onto the UGV rover.
 
-**Assembly with the Jetson Orin Nano from the kit:** follow [Waveshare's assembly video](#).
+**Assembly with the Jetson Orin Nano from the kit:** follow [Waveshare's assembly video](https://www.youtube.com/watch?v=R0-QG33DznY).
 
-**Assembly with an outside board (Jetson Nano):** if the D500 Lidar and OAK-D-Lite camera are not installed, watch the first minute of [Waveshare's assembly video](#), then return to these directions.
+**Assembly with an outside board (Jetson Nano):** if the D500 Lidar and OAK-D-Lite camera are not installed, watch the first minute of [Waveshare's assembly video](https://www.youtube.com/watch?v=R0-QG33DznY), then return to these directions.
 
 In case the videos are unavailable, here is the written assembly procedure.
 
 ### Step 1 — Install the Batteries
 
-First install the batteries into the Jetson Orin Nano. The UGV rover supports three 3.7 V 18650 lithium batteries. Not every lithium battery will fit into the rover ([more information on battery sizes here](#)). The batteries we used were the **Panasonic NCR18650B**.
+First install the batteries into the Jetson Orin Nano. The UGV rover supports three 3.7 V 18650 lithium batteries. Not every lithium battery will fit into the rover ([more information on battery sizes here](https://www.waveshare.com/wiki/UGV01?srsltid=AfmBOopWNF6uHkEWf9R4hXMq9RW6IyRbsHCBbrxsgdFF0uJ6u5n-XKex#:~:text=Answer:,-Support%20three%2018650)). The batteries we used were the **Panasonic NCR18650B**.
 
 Unscrew the four screws on the bottom of the rover to open the chassis compartment where the batteries are housed.
 
@@ -334,7 +334,7 @@ The control web page looks like this:
   <em>The rover control web page.</em>
 </p>
 
-Here's a [video of me interacting with the web page](#) — it's best viewed at 2× speed.
+Here's a [video of me interacting with the web page](https://drive.google.com/file/d/1IlLEvLh5fC3IxoM0tR-7eF75yilRr4_l/view?usp=drive_link) — it's best viewed at 2× speed.
 
 When ROS 2 is running, you'll see this on the OLED screen:
 
@@ -420,12 +420,12 @@ The contents of the exported zip file should look like this:
 
 # Part 3: Model Training and Autonomous Movement
 
-We'll use Ultralytics' [YOLO11n](#) base model and the YOLO CLI to train the model.
+We'll use Ultralytics' [YOLO11n](https://docs.ultralytics.com/models/yolo11#overview) base model and the YOLO CLI to train the model.
 
 ## 1. Set Up the data.yaml File
 
 1. Your `data.yaml` file **must** contain the `train` and `val` keys. The values for these keys must be the **relative paths** of the training and validation images, relative to the `data.yaml` file itself.
-2. Download the `yolo11n.pt` base model and make sure it's in the **same directory** as `data.yaml` ([download here](#)).
+2. Download the `yolo11n.pt` base model and make sure it's in the **same directory** as `data.yaml` ([download here](https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo11n.pt)).
 
 **This is the `data.yaml` file you should be given:**
 
@@ -505,7 +505,7 @@ Once training is done, the model you want is stored at:
   <em>The rover's start position on the course.</em>
 </p>
 
-[Video of the final product](#)
+[Video of the final product](https://drive.google.com/file/d/1bevn0_7i7SzDZiTyncs87aEuaYPShn-D/view?usp=drive_link)
 
 ---
 
