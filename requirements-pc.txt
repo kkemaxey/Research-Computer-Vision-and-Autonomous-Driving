@@ -1,0 +1,30 @@
+# ============================================================
+# PC / TRAINING MACHINE requirements
+# Python 3.10+  •  NVIDIA GPU with CUDA (training runs with device=0)
+#
+# Recommended install order (so you get the GPU build of PyTorch):
+#   1) Install a CUDA build of torch first (see PyTorch note below)
+#   2) pip install -r requirements-pc.txt
+# ============================================================
+
+# Core: YOLO training, validation, and export.
+# Installing ultralytics also pulls in opencv-python, numpy, pillow,
+# pyyaml, matplotlib, pandas, requests, and (unless already present) torch.
+ultralytics>=8.3.0        # 8.3.0+ is required for YOLO11 models
+
+# --- PyTorch (GPU build) ---------------------------------------------------
+# If you let ultralytics pull torch automatically you may get a CPU-only
+# build. For GPU training, install the CUDA build that matches your driver
+# FIRST, from the official PyTorch index. Example for CUDA 12.1:
+#
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+#
+# Choose the cuXXX tag for your system at https://pytorch.org/get-started/locally/
+# (left as comments so this file doesn't force a specific/incompatible build)
+# torch>=2.2
+# torchvision>=0.17
+
+# --- Optional -------------------------------------------------------------
+# Only needed if you also export models to ONNX/engine on the PC rather than
+# on the Jetson:
+# onnx>=1.16

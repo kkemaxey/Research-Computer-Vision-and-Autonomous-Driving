@@ -1,0 +1,51 @@
+# ============================================================
+# JETSON ORIN NANO requirements  (JetPack, ARM64 / aarch64)
+# Runs the control web app, YOLO inference, and the autonomy scripts.
+#
+#   pip install -r requirements-jetson.txt
+#
+# ⚠️  Some ML packages must NOT be installed from PyPI on Jetson.
+#     Install the pip-safe ones below, then handle torch / torchvision /
+#     tensorrt separately as described. A plain `pip install torch` or
+#     `pip install tensorrt` here will give you broken or x86 packages.
+# ============================================================
+
+# --- Pip-safe packages -----------------------------------------------------
+flask>=3.0            # control web app (app.py)
+pygame>=2.6           # audio / driver board (app.py startup log shows pygame 2.6.1)
+numpy>=1.23           # HSV processing + array math (autonomous_movement_hsv.py)
+onnx>=1.16            # required for:  yolo export ... format=engine
+ultralytics>=8.3.0    # YOLO inference + engine export  (READ the torch note below)
+
+# --- OpenCV: check before installing --------------------------------------
+# JetPack usually ships an OpenCV build (often CUDA-enabled). Installing
+# opencv-python from PyPI can shadow it and silently drop GPU support.
+# Check first:
+#   python3 -c "import cv2; print(cv2.__version__)"
+# Only if OpenCV is missing, uncomment:
+# opencv-python>=4.8
+
+# --- torch / torchvision: Jetson wheels ONLY (do NOT pip install normally) --
+# ultralytics will try to pull an x86 torch that will NOT run on ARM64.
+# After installing the packages above, remove that torch and install the
+# Jetson-specific builds that match your JetPack version, then build a
+# matching torchvision. Official steps:
+#   https://docs.ultralytics.com/guides/nvidia-jetson/
+# (intentionally NOT listed as install lines — they must come from NVIDIA)
+
+# --- tensorrt: provided by JetPack (do NOT pip install) --------------------
+# TensorRT, CUDA, and cuDNN are installed by the JetPack SDK at the system
+# level. Verify with:
+#   python3 -c "import tensorrt; print(tensorrt.__version__)"
+
+# --- onnxruntime-gpu (optional): prebuilt Jetson aarch64 wheel -------------
+# If you need GPU onnxruntime, install the prebuilt wheel matching your
+# JetPack + Python version (see the Jetson Zoo ONNX Runtime compatibility
+# matrix). Example shape of the command:
+#   pip install <onnxruntime_gpu ...-linux_aarch64.whl url>
+
+# --- Note ------------------------------------------------------------------
+# The base Waveshare ugv_jetson project ships its own requirements.txt.
+# This file covers the ML/autonomy additions on top of that — if you see
+# import errors for the stock web app, reconcile against the upstream repo:
+#   https://github.com/waveshareteam/ugv_jetson
