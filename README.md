@@ -352,7 +352,7 @@ When ROS 2 is running, you'll see this on the OLED screen:
 
 **Goal:** Take roughly **150 pictures each** of the U-turn, right-turn, and left-turn signs. The track lanes should ideally appear in most of the pictures. It's important to photograph each sign from **different angles** — this helps the computer-vision model distinguish the signs when they're viewed from varying perspectives.
 
-*[Google Drive link with example pictures — **TODO: add link**]*
+*[Google Drive link with example pictures](https://drive.google.com/drive/folders/1p4a6Bp_jgGi1fi8T364A4xIZFaM6qsOj?usp=drive_link)*
 
 Once the pictures have been taken, secure-copy (`scp`) the pictures directory from `ugv_jetson/templates/pictures` onto your PC:
 
