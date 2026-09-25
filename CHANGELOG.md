@@ -54,5 +54,5 @@ Entries are newest-first. Each entry covers one week of work.
 - CVAT tutorial links in the README are placeholders.
 
 ### Next Steps
-- Implement right-line following (see README "Your Task").
-- Update the README with accurate tutorial links.
+- Implement right-line following (see SETUP_GUIDE "Your Task").
+- Update the SETUP_GUIDE with accurate tutorial links.
