@@ -36,26 +36,26 @@ Entries are newest-first. Each entry covers one week of work.
 
 --- 
 ## [ChangeLog for Rover] — 2026-09-21
-**Jonathan Ross and Brent FoxWorth:** [We were troubleshooting WI-FI issues with the rover, developed a basic algorithm for the rover to follow on the course, and captured a couple photos on the rover ]
-**Goal:** [Try to access into the Rover and begin to understand the code/take miscellaneous pictures with the rover after attaining access to it.]
+**Jonathan Ross and Brent FoxWorth:** We were troubleshooting WI-FI issues with the rover, developed a basic algorithm for the rover to follow on the course, and captured a couple photos on the rover.
+**Goal:** Try to access into the Rover and begin to understand the code/take miscellaneous pictures with the rover after attaining access to it.
 
 ### Code
-- Added / Changed / Fixed / Removed: [No coded was added or changed this week]
+- No coded was added or changed this week
 
 ### Model & Dataset *(if changed)*
-- [No Change]
+- No Change
 
 ### Parameters *(if changed)*
-- [No Change]
+- No Change
 
 ### Test Results *(if tested)*
-- [No test Results]
+- No test Results
 
 ### Known Issues
-- [Flask overloading,Rover WI-FI sometimes dropping or not being to directly SSH into the rover,and previous SSD had to be removed to reinstall OS into new SSD.]
+- Flask overloading,Rover WI-FI sometimes dropping or not being to directly SSH into the rover,and previous SSD had to be removed to reinstall OS into new SSD.
 
 ### Next Steps
-- [Either continue working on the algorithm, possibly fixing the Flask overloading issue when the camera freezes, and figure out the accuracy metrics for the rover.]
+- Either continue working on the algorithm, possibly fixing the Flask overloading issue when the camera freezes, and figure out the accuracy metrics for the rover.
 
 
 
