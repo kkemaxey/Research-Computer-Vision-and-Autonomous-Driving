@@ -36,7 +36,9 @@ Entries are newest-first. Each entry covers one week of work.
 
 --- 
 ## [ChangeLog for Rover] — 2026-09-21
+
 **Jonathan Ross and Brent FoxWorth:** We were troubleshooting WI-FI issues with the rover, developed a basic algorithm for the rover to follow on the course, and captured a couple photos on the rover.
+
 **Goal:** Try to access into the Rover and begin to understand the code/take miscellaneous pictures with the rover after attaining access to it.
 
 ### Code
