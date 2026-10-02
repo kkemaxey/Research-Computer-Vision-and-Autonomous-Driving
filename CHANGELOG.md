@@ -35,6 +35,34 @@ Entries are newest-first. Each entry covers one week of work.
 ~~~
 
 --- 
+
+## (ChangeLog for Rover) — 2026-10-02
+**Jonathan Ross and Brent Foxworth:** Started writing the code for the basic movements that we established and possibly fixed the rover's connection issues to the Wi-FI
+
+**Goal:** Either get some progress done with the code for the Rover or start defining how we'll get the accuracy metrics for the rover.
+
+### Code
+- Still modifying the code right now, not actively done yet. Hopefully, will try to push the code sometime next week.
+
+### Model & Dataset *(if changed)*
+- No changes
+
+### Parameters *(if changed)*
+- No changes
+
+### Test Results *(if tested)*
+- No changes
+
+### Known Issues
+- Previous issue: WI-FI connection (potentially solved now) and the new SSD/OS having to be reinstalled for the rover.
+- Current Issue: Flask overloading for running the app.py file 
+
+### Next Steps
+- Finish the basic_movements.py code file so we can try to get a test run of the rover going through the course using our commands
+- Elaborate more on the accuracy metrics and see how we can formally define them.
+
+
+
 ## (ChangeLog for Rover) — 2026-09-21
 
 **Jonathan Ross and Brent FoxWorth:** We were troubleshooting WI-FI issues with the rover, developed a basic algorithm for the rover to follow on the course, and captured a couple photos on the rover.
