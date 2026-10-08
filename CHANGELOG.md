@@ -36,6 +36,44 @@ Entries are newest-first. Each entry covers one week of work.
 
 --- 
 
+## (ChangeLog for Rover) — 2026-10-08
+**Brent Foxworth and Jonathan Ross:** Continued work on the rover movement code by creating a separate movement testing script and testing basic forward movement on the rover.
+
+**Goal:** Continue developing the basic movement commands for the rover and begin testing whether the rover can accurately move across the 1 ft by 1 ft course tiles.
+
+### Code
+- Added `movement_test.py` as a separate file so testing could continue without changing the unfinished `basic_movement.py` file.
+- Added basic commands for moving forward, stopping, turning left, and turning right.
+- Added a short forward movement test and a menu for testing individual movement commands.
+- Used `/dev/ttyTHS1` at 115200 baud for communication with the rover.
+
+### Model & Dataset *(if changed)*
+- No changes
+
+### Parameters *(if changed)*
+- `BASE_SPEED = 0.20`
+- `SPIN_SPEED = 0.25`
+- `MAX_SPEED = 0.35`
+- `SECONDS_PER_FOOT = 1.2`
+- `SECONDS_PER_90_TURN = 1.75`
+
+### Test Results *(if tested)*
+- Successfully tested the short forward movement command and confirmed that the rover moves forward correctly.
+- Tested the 1-tile forward command using the current timing value.
+- The rover moved forward but stopped short of the full 1 ft tile distance.
+
+### Known Issues
+- The current `SECONDS_PER_FOOT = 1.2` value still needs to be calibrated because the rover stops short of one full tile.
+- Left and right 90 degree turns have not been tested yet.
+- Movement is currently based on timing, so distance may be affected by battery level and floor conditions.
+
+### Next Steps
+- Calibrate the forward movement timing so the rover travels one full 1 ft tile.
+- Test and calibrate the left and right 90 degree turns.
+- Continue building the basic movement commands needed for the rover to complete the course.
+
+
+
 ## (ChangeLog for Rover) — 2026-10-02
 **Jonathan Ross and Brent Foxworth:** Started writing the code for the basic movements that we established and possibly fixed the rover's connection issues to the Wi-FI
 
