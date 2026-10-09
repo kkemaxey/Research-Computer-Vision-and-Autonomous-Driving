@@ -36,7 +36,7 @@ Entries are newest-first. Each entry covers one week of work.
 
 --- 
 
-## (ChangeLog for Rover) — 2026-10-08
+## (ChangeLog for Rover) — 2026-10-09
 **Brent Foxworth and Jonathan Ross:** Continued work on the rover movement code by creating a separate movement testing script and testing basic forward movement on the rover.
 
 **Goal:** Continue developing the basic movement commands for the rover and begin testing whether the rover can accurately move across the 1 ft by 1 ft course tiles.
@@ -51,20 +51,21 @@ Entries are newest-first. Each entry covers one week of work.
 - No changes
 
 ### Parameters *(if changed)*
-- `BASE_SPEED = 0.20`
+- `BASE_SPEED = 0.25`
 - `SPIN_SPEED = 0.25`
 - `MAX_SPEED = 0.35`
-- `SECONDS_PER_FOOT = 1.2`
-- `SECONDS_PER_90_TURN = 1.75`
+- `SECONDS_PER_FOOT = 1.4`
+- `SECONDS_PER_90_LEFT = 1.25`
+- `SECONDS_PER_90_RIGHT = 1.34`
 
 ### Test Results *(if tested)*
 - Successfully tested the short forward movement command and confirmed that the rover moves forward correctly.
 - Tested the 1-tile forward command using the current timing value.
-- The rover moved forward but stopped short of the full 1 ft tile distance.
+- The rover moved forward and successfully stopped in the tile right in front of it.
+- The left and right turns for the rover are inconsistent (Overturns and Under turns are frequent).
 
 ### Known Issues
-- The current `SECONDS_PER_FOOT = 1.2` value still needs to be calibrated because the rover stops short of one full tile.
-- Left and right 90 degree turns have not been tested yet.
+- Left and right 90 degree turns sometimes over or under turn (I believe this could be due to how the weight is distributed on the rover/friction)
 - Movement is currently based on timing, so distance may be affected by battery level and floor conditions.
 
 ### Next Steps
