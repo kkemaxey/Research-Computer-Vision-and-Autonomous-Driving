@@ -5,12 +5,13 @@ import serial
 SERIAL_PORT = "/dev/ttyTHS1"
 BAUD = 115200
 
-BASE_SPEED = 0.20
+BASE_SPEED = 0.25
 SPIN_SPEED = 0.25
 MAX_SPEED = 0.35
 
-SECONDS_PER_FOOT = 1.2
-SECONDS_PER_90_TURN = 1.75
+SECONDS_PER_FOOT = 1.4
+SECONDS_PER_90_LEFT = 1.25
+SECONDS_PER_90_RIGHT = 1.34
 
 ser = serial.Serial(SERIAL_PORT, BAUD, timeout=0.1)
 
@@ -54,7 +55,7 @@ def turn_left_90():
 
     drive(-SPIN_SPEED, SPIN_SPEED)
 
-    time.sleep(SECONDS_PER_90_TURN)
+    time.sleep(SECONDS_PER_90_LEFT)
 
     stop()
 
@@ -66,7 +67,7 @@ def turn_right_90():
 
     drive(SPIN_SPEED, -SPIN_SPEED)
 
-    time.sleep(SECONDS_PER_90_TURN)
+    time.sleep(SECONDS_PER_90_RIGHT)
 
     stop()
 
