@@ -36,6 +36,41 @@ Entries are newest-first. Each entry covers one week of work.
 
 --- 
 
+## (ChangeLog for Rover) — 2026-10-15
+**Brent Foxworth and Jonathan Ross:** Continued work on the rover movement code by adjusting the turning parameters and testing the rover on basic movement.
+
+**Goal:** Fine-tune the basic movement of the rover as best as we can and begin the first steps of training the rover/data collection.
+
+### Code
+- Modified `movement_test.py` so the rover can properly maneuver 
+- Downloaded a package called `tailscale` that allows for a static ip address to be assigned to the rover and local machine. In the terminal, enter `tailscale status` so it'll output the rover's permanent IP address
+
+### Model & Dataset *(if changed)*
+- No changes
+
+### Parameters *(if changed)*
+- `BASE_SPEED = 0.25`
+- `SPIN_SPEED = 0.20`
+- `MAX_SPEED = 0.35`
+- `SECONDS_PER_FOOT = 1.4`
+- `SECONDS_PER_90_LEFT = 1.45`
+- `SECONDS_PER_90_RIGHT = 1.63`
+
+### Test Results *(if tested)*
+- Successfully tested both the left and right turn within the 1-by-1 tile.
+- Sometimes, the turns are still inconsistent but these may be due to the motors not being supplied a consistent voltage(Not safe to assume until we verify using a multimeter to measure the voltage).
+- For the most part, however, the rover is making a full 90 degree left or right turn/
+
+### Known Issues
+- Left and right 90 degree turns sometimes under turn (I believe this could be due to how the weight is distributed on the rover/friction or inconsistent voltage)
+- Movement is currently based on timing, so distance may be affected by battery level and floor conditions.
+
+### Next Steps
+- Finish calibrating the left and right 90 degree turns.
+- Continue building the basic movement commands needed for the rover to complete the course.
+- Start data collection soon so the rover can be trained.
+
+
 ## (ChangeLog for Rover) — 2026-10-09
 **Brent Foxworth and Jonathan Ross:** Continued work on the rover movement code by creating a separate movement testing script and testing basic forward movement on the rover.
 
