@@ -36,6 +36,33 @@ Entries are newest-first. Each entry covers one week of work.
 
 --- 
 
+## (ChangeLog for Rover) — 2026-10-30
+**Brent Foxworth and Jonathan Ross:** Tried to start data collection today by taking pics with the rover, but ran into some issues.
+
+**Goal:** Begin data collection with the rover by running `app.py` to capture photos that will be used for training.
+
+### Code
+- No changes with the `movement_test.py`
+- Downloaded a package called `tailscale` that allows for a static ip address to be assigned to the rover and local machine. In the terminal, enter `tailscale status` so it'll output the rover's permanent IP address
+
+### Model & Dataset *(if changed)*
+- No changes
+
+### Parameters *(if changed)*
+- No changes
+
+### Test Results *(if tested)*
+- No tests conducted
+
+### Known Issues
+- Left and right 90 degree turns sometimes under turn (I believe this could be due to how the weight is distributed on the rover/friction or inconsistent voltage)
+- Movement is currently based on timing, so distance may be affected by battery level and floor conditions.
+- All four USB-A ports on the Jetson Orin Nano are not registering peripherals: the Nano’s USB controller appears to work (lsusb shows the root hubs and the M.2 Bluetooth radio), but the onboard USB hub chip that every USB-A port runs through (Realtek RTS5420, U7) never shows up. Since the hub’s ports appear enabled in the device tree and no over-current events were logged, this is possibly a hardware fault on the carrier board, potentially the hub chip itself or its 1.1V regulator (U26/L19), pending multimeter checks and a stock JetPack test boot to rule out a software cause. As a workaround, the USB-C port still works and could potentially be used with a powered USB-C hub.
+
+### Next Steps
+- Trouble shoot **voltage issue** regarding the rover using the multi meter.
+- Start data collection soon so the rover can be trained.
+
 ## (ChangeLog for Rover) — 2026-10-15
 **Brent Foxworth and Jonathan Ross:** Continued work on the rover movement code by adjusting the turning parameters and testing the rover on basic movement.
 
