@@ -35,7 +35,35 @@ Entries are newest-first. Each entry covers one week of work.
 ~~~
 
 --- 
+## Rover SSD Swap and Hardware Troubleshooting — 2026-11-05
+**Author(s):** Brent Foxworth, Jonathan Ross, Kanayo Egwuekwe-Maxey  
+**Goal:** Preserve the original rover's data and development environment while moving our current SSD onto the Jetson Nano that is still functioning.
 
+### Code
+- No major code changes were made this week.
+- Continued planning updates to the autonomous movement logic so detected turn signs can trigger the corresponding left turn, right turn, or U-turn functions.
+
+### Model & Dataset *(if changed)*
+- No changes
+
+### Parameters *(if changed)*
+- No changes
+
+### Test Results *(if tested)*
+- Swapped the SSDs between the broken Jetson Nano and the working Jetson Nano.
+- Preserved the original rover's information and data on its SSD.
+- Moved our current Nano's SSD onto the working Nano so development can continue on functioning hardware.
+
+### Known Issues
+- The USB ports on the Jetson Nano we are currently using are not working properly.
+- The USB issue currently prevents or limits the use of devices such as the rover camera and other USB-connected hardware.
+- Full autonomous driving and camera-based testing cannot continue until the USB issue is resolved.
+
+### Next Steps
+- Troubleshoot the USB ports on the working Jetson Nano.
+- Verify that the camera and other required USB devices can be detected.
+- Continue integrating the calibrated movement functions with the autonomous movement script.
+- Continue preparing the rover so left-turn, right-turn, and U-turn signs can trigger their corresponding movement functions.
 ## (ChangeLog for Rover) — 2026-11-2
 **Brent Foxworth and Jonathan Ross:** Hardware diagnosis & pivoting the project
 
