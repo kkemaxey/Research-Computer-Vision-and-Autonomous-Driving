@@ -36,6 +36,42 @@ Entries are newest-first. Each entry covers one week of work.
 
 --- 
 
+## (ChangeLog for Rover) — 2026-11-2
+**Brent Foxworth and Jonathan Ross:** Hardware diagnosis & pivoting the project
+
+**Goal:** Troubleshoot unresponsive USB-A ports on the Jetson Orin Nano carrier board and brainstorming how to navigate through this potential setback
+
+### Code
+- No changes
+
+### Model & Dataset *(if changed)*
+- No changes
+
+### Parameters *(if changed)*
+- No changes
+
+### Test Results *(if tested)*
+
+* **Device Tree:** Hub ports (`usb2-1` and `usb3-0`) set to `okay`, confirming they are enabled in software.
+* **Bus Enumeration (`lsusb -t`):** Root hubs and Bluetooth card appear; onboard USB hub (Realtek RTS5420, U7) is missing entirely.
+* **Continuity Check:** Inductor L19 is intact.
+* **Resistance Checks (Power Off):**
+  * USB port power caps (C376 and C160): ~4.5 kΩ (healthy, no short).
+  * Hub 1.1V rail across L19: ~0.9 Ω to ground (indicates a short).
+* **Voltage Checks (Power On):**
+  * 40-pin header pins 1 and 2: 3.3V and 5.0V (normal).
+  * Both ends of L19: 0V, confirming the hub's 1.1V rail is shorted to ground and unpowered.
+
+### Known Issues
+- Left and right 90 degree turns sometimes under turn (I believe this could be due to how the weight is distributed on the rover/friction or inconsistent voltage)
+- Movement is currently based on timing, so distance may be affected by battery level and floor conditions.
+- All four USB-A ports on the Jetson Orin Nano are not registering peripherals because the onboard USB hub chip (Realtek RTS5420, U7) never powers on; multimeter testing found the hub's 1.1V supply rail shorted to ground (~0.9Ω, 0V while powered), while the USB port power lines tested healthy (~4.5kΩ). The short is potentially inside the hub chip itself, or possibly a shorted decoupling capacitor near it, which could be isolated with a current-limited bench supply test. As a workaround, the USB-C port still works and could potentially be used with a powered USB-C hub, with a carrier board replacement being a possible long-term fix if the hub chip is confirmed as the cause.
+
+### Next Steps
+- Perhaps switch over to the other rover that was pre-trained and train on top of the data that Kanayo and Omar trained over the summer
+- Begin to take pictures for data collection
+
+
 ## (ChangeLog for Rover) — 2026-10-30
 **Brent Foxworth and Jonathan Ross:** Tried to start data collection today by taking pics with the rover, but ran into some issues.
 
