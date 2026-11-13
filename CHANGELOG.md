@@ -35,6 +35,47 @@ Entries are newest-first. Each entry covers one week of work.
 ~~~
 
 --- 
+
+## Turn Sign Dataset Collection and Renaming Photos — 2026-11-13
+**Author(s):** Brent Foxworth, Jonathan Ross, Kanayo Egwuekwe-Maxey  
+**Goal:** Collect and label the first batch of training images for left-turn, right-turn, and U-turn sign detection.
+
+### Code
+- Added `rename_photos.py`, a labeling script that renames raw rover images by sign and position (e.g. `right_pos2_01.jpg`, `uturn_pos3_x_07.jpg`).
+
+### Model & Dataset
+- Collected the first batch of turn-sign images with the rover camera.
+- Collection plan: 20 images per distance, 4 distances per sign, 3 signs. U-turn was expanded to 8 positions (pos 1–4 in two sets, `x` and `y`).
+- Images transferred from the rover (`~/ugv_jetson/templates/pictures`) to the training PC via `scp`.
+- Final labeled counts:
+
+| Sign | Pos 1 | Pos 2 | Pos 3 | Pos 4 | Total |
+|---|---|---|---|---|---|
+| Right turn | 17 | 20 | 25 | 20 | 82 |
+| Left turn | 15 | 16 | 18 | 21 | 70 |
+| U-turn (y) | 20 | 20 | 20 | 20 | 80 |
+| U-turn (x) | 20 | 21 | 21 | 20 | 82 |
+| **Total** | | | | | **314** |
+
+- Planned split: 80% training / 20% validation.
+
+### Parameters
+- No changes
+
+### Test Results
+- All 314 images renamed by sign and position.
+
+### Known Issues
+- Per-position counts are uneven (15–25 instead of the 20 target) because the original image order was miscounted during collection.
+- Class imbalance: U-turn has about 2× the images of left or right turn (162 vs. 70/82). This may bias the model toward U-turn.
+
+### Next Steps
+- Decide whether to balance classes (collect more left/right images, or subsample U-turn).
+- Apply the 80/20 train/validation split.
+- Train the first sign-detection model on this batch.
+- Connect sign detections to the calibrated left-turn, right-turn, and U-turn movement functions.
+  
+
 ## Rover SSD Swap and Hardware Troubleshooting — 2026-11-05
 **Author(s):** Brent Foxworth, Jonathan Ross, Kanayo Egwuekwe-Maxey  
 **Goal:** Preserve the original rover's data and development environment while moving our current SSD onto the Jetson Nano that is still functioning.
